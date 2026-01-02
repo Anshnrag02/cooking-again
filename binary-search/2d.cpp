@@ -18,8 +18,6 @@ public:
             else if(a[mid][mid2]>target) r=mid2-1;
             else l = mid2+1;
         }
-
-
         return false;
     }
 };
