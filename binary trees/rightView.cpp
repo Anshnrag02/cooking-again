@@ -12,17 +12,16 @@
 
 class Solution {
 public:
-    vector<vector<int>> levelOrder(TreeNode* root) {
+    vector<int> rightSideView(TreeNode* root) {
         if(root==nullptr) return {};
-        vector<vector<int>>ans;
+        vector<int>ans;
         queue<pair<TreeNode*,int>>q;
         q.push({root,0});
         while(!q.empty()){ 
             auto [node, height] = q.front();q.pop();
-            if(node->left != nullptr) q.push({node->left,height+1});
             if(node->right != nullptr) q.push({node->right,height+1});
-            if(ans.size()==height) ans.push_back({});
-            ans[height].push_back(node->val);
+            if(node->left != nullptr) q.push({node->left,height+1});
+            if(ans.size()==height) ans.push_back(node->val);
         }
         return ans;
     }
