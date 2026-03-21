@@ -16,11 +16,11 @@ public:
        if(root==nullptr) return nullptr;
         if(root==q || root==p) return root;
         TreeNode* sl = nullptr;
-        if(root->left!=nullptr and (p->val < root->val || q->val < root->val)) {
+        if(root->left!=nullptr) {
             sl=lowestCommonAncestor(root->left,p,q);
         }
         TreeNode* sr = nullptr;
-        if(root->right!=nullptr and (p->val > root->val || q->val > root->val)) {
+        if(root->right!=nullptr) {
             sr=lowestCommonAncestor(root->right,p,q);
         }
         if(sr!=nullptr and sl!=nullptr) return root;
