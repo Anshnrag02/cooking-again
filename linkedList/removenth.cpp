@@ -39,3 +39,16 @@ public:
         return head;
     }
 };
+
+
+ListNode* removeNthFromEnd(ListNode* head, int& n) {
+        if(!head){
+            return nullptr;
+        }
+        head->next = removeNthFromEnd(head->next, n);
+        --n;
+        if (n==0) {
+            return head->next;
+        }
+        return head;
+    }
